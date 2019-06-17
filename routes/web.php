@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+$this->get('/home', 'HomeController@index')->name('home');
+
 $this->group(['prefix' => 'admin'], function() {
 
-    $this->get('/home', 'HomeController@index')->name('dashboard');
+    $this->get('/home', 'HomeController@index')->name('home');
 
 });

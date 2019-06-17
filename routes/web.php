@@ -23,4 +23,16 @@ $this->group(['prefix' => 'admin'], function() {
 
     $this->get('/home', 'HomeController@index')->name('home');
 
+    $this->group(['middleware' => 'auth', 'prefix' => 'events'], function() {
+
+        $this->get('/', 'EventController@index')->name('event.index');
+        $this->get('/create', 'EventController@create')->name('event.create');
+        $this->post('/store', 'EventController@store')->name('event.store');
+        $this->get('/edit/{id}', 'EventController@edit')->name('event.edit');
+        $this->get('/show/{id}', 'EventController@show')->name('event.show');
+        $this->post('/update/{id}', 'EventController@update')->name('event.update');
+        $this->post('/delete/{id}', 'EventController@delete')->name('event.delete');
+
+    });
+
 });

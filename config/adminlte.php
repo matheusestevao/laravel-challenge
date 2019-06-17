@@ -113,6 +113,12 @@ return [
             'url'         => 'admin/home',
             'icon'        => 'dashboard',
         ],
+        'EVENTS',
+        [
+            'text' => 'Events',
+            'url'  => 'admin/events',
+            'icon' => 'calendar',
+        ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',

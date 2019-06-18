@@ -42,18 +42,18 @@
 
     <div class="box-body">
         <div class="form-group col-md-4" id="div-title">
-            <label>Title:</label>
-            <input name="title" id="title" type="text" class="title form-control" placeholder="Title" value="{{ $event->title or old('title') }}">
+            <label>Title:</label><br />
+            <span>{{ $event->title }}</span>
         </div>
 
         <div class="form-group col-md-8" id="div-start_end_datetime">
-            <label>Date and Time for Start and End of the Event:</label>
-            <input name="start_end_datetime" id="start_end_datetime" type="text" class="start_end_datetime form-control" placeholder="Date and Time for Start and End of the Event" value="{{ $dateTime or old('start_end_datetime') }}">
+            <label>Date and Time for Start and End of the Event:</label><br />
+            <span>{{ dateDBSys($event->start_datetime) }} {{ dateDBSys($event->end_datetime) }}</span>
         </div>
 
         <div class="form-group col-md-12" id="div-description">
-            <label>Description:</label>
-            <textarea name="description" id="description" rows="10" class="description form-control" placeholder="Describe here about your event">{{ $event->description or old('description') }}</textarea>
+            <label>Description:</label><br />
+            <span>{{ nl2br($event->description) }}</span>
         </div>
 
         <div class="clearfix"></div>
@@ -62,16 +62,9 @@
             <div class="col-md-6">
                 <a href="{{ route('event.index') }}" class="btn btn-danger btn-voltar"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
             </div>
-            @if(!isset($event))
-                <div class="col-md-6 text-right">
-                    <button type="submit" class="btn btn-success btn-salvar"><i class="fa fa-save" aria-hidden="true"></i> Save</button>
-                </div>
-            @else
-                <div class="col-md-6 text-right">
-                    <button type="submit" class="btn btn-success btn-salvar"><i class="fa fa-save" aria-hidden="true"></i> Update</button>
-                </div>
-            @endif
-            
+            <div class="col-md-6 text-right">
+                <a href="{{ route('event.edit', $event->id) }}" class="btn btn-warning btn-edit"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+            </div>
         </div>
     </div>
     <!-- /.box-body -->

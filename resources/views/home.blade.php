@@ -12,9 +12,9 @@
             <!-- small box -->
             <div class="small-box bg-aqua">
                 <div class="inner">
-                    <h3>150</h3>
+                    <h3>{{ $today }}</h3>
 
-                    <p>Today Event(s)</p>
+                    <p>Today</p>
                 </div>
                 <div class="icon">
                     <i class="fa fa-fw fa-calendar-check-o"></i>
@@ -27,7 +27,7 @@
             <!-- small box -->
             <div class="small-box bg-green">
                 <div class="inner">
-                    <h3>53</h3>
+                    <h3>{{ $next }}</h3>
 
                     <p>Next 5 days</p>
                 </div>
@@ -42,7 +42,7 @@
             <!-- small box -->
             <div class="small-box bg-yellow">
                 <div class="inner">
-                    <h3>44</h3>
+                    <h3>{{ $all }}</h3>
 
                     <p>All Events</p>
                 </div>

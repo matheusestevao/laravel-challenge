@@ -23,6 +23,7 @@
 
     <div class="div-btn" style="margin-bott om: 25px;margin-top: 55px">
         <a href="{{ route('event.create') }}" class="btn btn-success"><i class="fa fa-fw fa-calendar-plus-o"></i> New Event</a>
+        <a href="{{ route('event.import') }}" class="btn btn-primary"><i class="fa fa-fw fa-upload"></i> Import CSV</a>
     </div>
 
     <div class="div-btn" style="margin-bottom: 25px;margin-top: 25px">
@@ -50,10 +51,10 @@
                             <tbody>
                                 @forelse($events as $event)
                                     <tr>
-                                        <td>{{ $event->created_at }}</td>
+                                        <td>{{ dateDBSys($event->created_at) }}</td>
                                         <td>{{ $event->title }}</td>
-                                        <td>{{ $event->start_datetime }}</td>
-                                        <td>{{ $event->end_datetime }}</td>
+                                        <td>{{ dateDBSys($event->start_datetime) }}</td>
+                                        <td>{{ dateDBSys($event->end_datetime) }}</td>
                                         <td class="justif">
                                             <a href="{{ route('event.edit', $event->id) }}" class="btn btn-primary">
                                                 <i class="fa fa-fw fa-pencil"></i>
@@ -144,7 +145,6 @@
                     null,
                     { "orderable": false },
                 ],
-                "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
                 dom: 'Bfrtip',
                 buttons: [
                     'csv'

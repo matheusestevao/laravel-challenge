@@ -35,6 +35,13 @@ $this->group(['prefix' => 'admin'], function() {
             $this->post('/update/{id}', 'EventController@update')->name('event.update');
             $this->post('/delete/{id}', 'EventController@destroy')->name('event.delete');
 
+            $this->group(['prefix' => 'import'], function() {
+
+                $this->get('/', 'EventController@import')->name('event.import');
+                $this->post('/save', 'EventController@importSave')->name('event.importsave');
+
+            });
+
         });
 
         $this->group(['prefix' => 'ajax'], function() {
